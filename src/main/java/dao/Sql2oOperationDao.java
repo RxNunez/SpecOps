@@ -32,6 +32,23 @@ public class Sql2oOperationDao implements OperationDao{
     }
 
     @Override
+    public void deleteById(int id) {
+        String sql = "DELETE from operations WHERE id = :id";
+        String deleteJoin = "DELETE from operations_locations WHERE operationid = :operationid";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+            con.createQuery(deleteJoin)
+                    .addParameter("operationId", id)
+                    .executeUpdate();
+
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
+    @Override
     public List<Operation> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM operations")
@@ -41,7 +58,7 @@ public class Sql2oOperationDao implements OperationDao{
 
     @Override
     public void addOperationToLocation(Operation operation, Location location) {
-        String sql = "INSERT INTO locations_operations (locationid, operationid) VALUES (:locationId, :operationId)";
+        String sql = "INSERT INTO locations_operations (locationId, operationId) VALUES (:locationid, :operationid)";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("locationId", location.getId())
@@ -56,7 +73,7 @@ public class Sql2oOperationDao implements OperationDao{
     @Override
     public List<Location> getLocationsByOperation(int operationId) {
         ArrayList<Location> locations = new ArrayList<>();
-        String joinQuery = "SELECT locationid FROM locations_operations WHERE operationid = :operationId";
+        String joinQuery = "SELECT locationId FROM locations_operations WHERE operationId = :operationId";
         try (Connection con = sql2o.open()) {
             List<Integer> allLocationIds = con.createQuery(joinQuery)
                     .addParameter("operationId", operationId)

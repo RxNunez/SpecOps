@@ -41,8 +41,8 @@ public class Sql2oLocationDao implements LocationDao{
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE from locations WHERE id = :id"; //raw sql
-        String deleteJoin = "DELETE from locations_operations WHERE locationid = :locationId";
+        String sql = "DELETE from locations WHERE id = :id";
+        String deleteJoin = "DELETE from locations_operations WHERE locationid = :locationid";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
@@ -85,7 +85,7 @@ public class Sql2oLocationDao implements LocationDao{
     }
 
     @Override
-    public void addLocationsToOperation(Location location, Operation operation){
+    public void addLocationToOperation(Location location, Operation operation){
         String sql = "INSERT INTO locations_operations (locationid, operationid) VALUES (:locationId, :operationId)";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)

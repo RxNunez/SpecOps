@@ -17,7 +17,7 @@ public class Sql2oAssessmentDao implements AssessmentDao  {
 
     @Override
     public void add(Assessment assessment) {
-        String sql = "INSERT INTO assessments (rater, rating, locationid) VALUES (:rater, :rating, :locationid)";
+        String sql = "INSERT INTO assessments (rater, rating, locationId) VALUES (:rater, :rating, :locationid)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .addParameter("rater", assessment.getRater())
@@ -53,7 +53,7 @@ public class Sql2oAssessmentDao implements AssessmentDao  {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM assessments WHERE locationId = :locationid")
                     .addColumnMapping("LOCATIONID", "locationid")
-                    .addParameter("locationId", locationId)
+                    .addParameter("locationid", locationId)
                     .executeAndFetch(Assessment.class);
         }
     }

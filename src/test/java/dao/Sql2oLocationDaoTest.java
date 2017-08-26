@@ -87,17 +87,17 @@ public class Sql2oLocationDaoTest {
     }
 
     @Test
-    public void deleteingLocationAlsoUpdatesJoinTable() throws Exception {
+    public void deleteLocationAlsoUpdatesJoinTable() throws Exception {
         Operation testOperation  = new Operation("Renegade");
         operationDao.add(testOperation);
 
         Location testLocation = setupLocation();
-        operationDao.add(testLocation);
+        operationDao.add(testOperation);
 
         Location altLocation = setupAltLocation();
         locationDao.add(altLocation);
 
-        locationDao.addLocationToOperation(testLocation,testLocation);
+        locationDao.addLocationToOperation(testLocation, testOperation);
         locationDao.addLocationToOperation(altLocation, testOperation);
 
         locationDao.deleteById(testLocation.getId());
@@ -118,4 +118,3 @@ public class Sql2oLocationDaoTest {
 
 }
 
-}

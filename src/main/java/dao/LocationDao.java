@@ -10,7 +10,7 @@ public interface LocationDao {
 
     //create
     void add (Location location);
-    void addLocationsToOperation(Location location, Operation operation);
+    void addLocationToOperation(Location location, Operation operation);
 
     //read
     List<Location> getAll();
