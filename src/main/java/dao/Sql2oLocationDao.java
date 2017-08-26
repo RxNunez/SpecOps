@@ -48,7 +48,7 @@ public class Sql2oLocationDao implements LocationDao{
                     .addParameter("id", id)
                     .executeUpdate();
             con.createQuery(deleteJoin)
-                    .addParameter("locationId", id)
+                    .addParameter("locationid", id)
                     .executeUpdate();
 
         } catch (Sql2oException ex){

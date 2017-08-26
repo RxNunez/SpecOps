@@ -11,12 +11,12 @@ public interface OperationDao {
 
     //create
     void add(Operation operation);
-    void addOperationToLocation(Operation operation, Location location);
+    void addOperationsToLocations(Operation operation, Location location);
 
 
     //read
     List<Operation> getAll();
-    List<Location> getLocationsByOperation(int id);
+    List<Location> getLocationsByOperations(int id);
 
     //update
 

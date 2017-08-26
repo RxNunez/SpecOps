@@ -22,3 +22,9 @@ CREATE TABLE IF NOT EXISTS assessments (
   createdat TIMESTAMP,
   locationid INTEGER
 );
+
+CREATE TABLE IF NOT EXISTS locations_operations (
+  id int PRIMARY KEY auto_increment,
+  locationId INTEGER,
+  operationId INTEGER
+);

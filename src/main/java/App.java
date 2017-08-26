@@ -31,6 +31,7 @@ public class App {
         assessmentDao = new Sql2oAssessmentDao(sql2o);
         conn = sql2o.open();
 
+        //READ
 
         post("/locations/:locationId/assessments/new", "application/json", (req, res) -> {
             int locationId = Integer.parseInt(req.params("locationId"));

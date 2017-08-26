@@ -84,7 +84,7 @@ public class Sql2oLocationDaoTest {
 
         Operation[] operations = {testOperation, otherOperation};
 
-        assertNotEquals(locationDao.getAllOperationsByLocation(testLocation.getId()), Arrays.asList(operations));
+        assertEquals(locationDao.getAllOperationsByLocation(testLocation.getId()), Arrays.asList(operations));
     }
 
     @Test

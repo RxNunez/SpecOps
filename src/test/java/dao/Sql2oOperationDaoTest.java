@@ -73,11 +73,12 @@ public class Sql2oOperationDaoTest {
 
         operationDao.add(testOperation);
 
-        operationDao.addOperationToLocation(testOperation, testLocation);
-        operationDao.addOperationToLocation(testOperation, altLocation);
+        operationDao.addOperationsToLocations(testOperation, testLocation);
+        operationDao.addOperationsToLocations(testOperation, altLocation);
 
 
-        assertEquals(0, operationDao.getLocationsByOperation(testOperation.getId()).size());
+        assertEquals(2, operationDao.getLocationsByOperations(testOperation.getId()).size());
+
     }
     @Test
     public void deleteOperationAlsoUpdatesJoinTable() throws Exception {
@@ -92,11 +93,12 @@ public class Sql2oOperationDaoTest {
         operationDao.add(testOperation);
         operationDao.add(otherOperation);
 
-        operationDao.addOperationToLocation(testOperation, testLocation);
-        operationDao.addOperationToLocation(otherOperation,testLocation);
+        operationDao.addOperationsToLocations(testOperation, testLocation);
+        operationDao.addOperationsToLocations(otherOperation,testLocation);
 
         operationDao.deleteById(testLocation.getId());
-        assertEquals(0, operationDao.getLocationsByOperation(testOperation.getId()).size());
+
+        assertEquals(0, operationDao.getLocationsByOperations(testOperation.getId()).size());
     }
 
 
