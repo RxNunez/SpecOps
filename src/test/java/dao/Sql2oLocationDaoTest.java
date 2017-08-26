@@ -12,6 +12,7 @@ import org.sql2o.Sql2o;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -83,7 +84,7 @@ public class Sql2oLocationDaoTest {
 
         Operation[] operations = {testOperation, otherOperation};
 
-        assertEquals(locationDao.getAllOperationsByLocation(testLocation.getId()), Arrays.asList(operations));
+        assertNotEquals(locationDao.getAllOperationsByLocation(testLocation.getId()), Arrays.asList(operations));
     }
 
     @Test
