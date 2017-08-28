@@ -10,9 +10,9 @@ This program can add, read, delete and retrieve operation details from the datab
 
 ## Postman
 * _Adding Location Details_
-![image of postman1](https://github.com/C:\Users\Ryan\Desktop\SpecOps\src\main\resources\public\img\Postman1.jpg")
+![image of postman1]("https://github.com/RxNunez/SpecOps/blob/master/src/main/resources/public/img/Postman1.jpg")
 * _Retrieving multiple location details_
-![image of postman2](https://github.com/C:\Users\Ryan\Desktop\SpecOps\src\main\resources\public\img\postman2.png")
+![image of postman2]("https://github.com/RxNunez/SpecOps/blob/master/src/main/resources/public/img/postman2.png")
 
 ## Development Specifications
 
