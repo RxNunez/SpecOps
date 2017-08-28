@@ -1,0 +1,21 @@
+Operation
+{
+	"name":"Renegade"
+}
+
+Location
+{
+  "name" : "Korea",
+  "terrain" : "Jungle",
+  "condition": "Hostile",
+  "mission" : "Guard",
+  "site" : "DMZ",
+  "map" : "grid.jpg"
+}
+
+Assessment
+{
+  "rater" : "LT1",
+  "rating" : "5",
+  "locationId" : "1"
+}
